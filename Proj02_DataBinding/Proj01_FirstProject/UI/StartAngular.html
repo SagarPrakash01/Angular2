@@ -1,0 +1,21 @@
+﻿<!Doctype html>
+<html>
+<head>
+    <link rel="shortcut icon" href="" />
+    <script src="../../node_modules/core-js/client/shim.min.js"></script>    
+    <script src="../../node_modules/zone.js/dist/zone.js"></script>
+    <script src="../../node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="../../node_modules/systemjs/dist/system.js"></script>
+    <script src="../systemjs.config.js"></script>
+</head>
+<body>
+    
+    <script>
+        System.config({
+            "defaultJSExtensions": true
+        });
+        System.import('startup').catch(function (err) { console.error(err); });
+    </script>
+    <customer-ui></customer-ui>
+</body>
+</html>

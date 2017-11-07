@@ -1,0 +1,26 @@
+﻿[
+  {
+    "CustomerId": "C1001",
+    "CustomerName": "Bhavana",
+    "CustomerAmount": 5000,
+    "CustomerCountry": "India",
+    "CustomerState": "Maharashtra",
+    "CustomerType" :  "Customer"
+  },
+  {
+    "CustomerId": "C1002",
+    "CustomerName": "Vishal",
+    "CustomerAmount": 3000,
+    "CustomerCountry": "USA",
+    "CustomerState": "NewYork",
+    "CustomerType": "LoyalCustomer"
+  },
+  {
+    "CustomerId": "C1003",
+    "CustomerName": "Amit",
+    "CustomerAmount": 7000,
+    "CustomerCountry": "India",
+    "CustomerState": "Rajasthan",
+    "CustomerType": "Customer"
+  }
+]

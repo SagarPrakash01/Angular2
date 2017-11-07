@@ -1,0 +1,87 @@
+﻿<form [formGroup]="customerObj.CustomerGroupValidator">
+    <select [ngModel]="CustomerType" (ngModelChange)="onCustomerTypeChange($event)" [ngModelOptions]="{standalone : true}" >
+        <option value="Customer">Customer</option>
+        <option value="LoyalCusomer">LoyalCustomer</option>
+    </select>
+    <div>
+        Customer Id :   <input type="text" [(ngModel)]="customerObj.CustomerId" formControlName="CustomerId" /> 
+        <span [ngClass]="{redtext : true}" *ngIf="(customerObj.IsDirty('CustomerId') == true)"   [hidden]="customerObj.IsValid('CustomerId','required')">Customer Id is require</span>
+        <span [ngClass]="{redtext : true}" *ngIf="(customerObj.IsDirty('CustomerId') == true)" [hidden]="customerObj.IsValid('CustomerId','pattern')">Customer Id should start with C followed by 4 digits</span>
+
+<br />
+        Customer Name : <input type="text" [ngModel]="customerObj.CustomerName" (input)="customerObj.CustomerName=$event.target.value" formControlName="CustomerName" /> 
+        <span [ngClass]="{redtext : true}" *ngIf="(customerObj.IsDirty('CustomerName') == true)" [hidden]="customerObj.IsValid('CustomerName','required')">Customer Name is require</span>
+
+        <br />
+        Customer Amount:  <input type="text" [(ngModel)]="customerObj.CustomerAmount" formControlName="CustomerAmount" />
+        <span [ngClass]="{redtext : true}" *ngIf="(customerObj.IsDirty('CustomerAmount') == true)" [hidden]="customerObj.IsValid('CustomerAmount','required')">Customer Amount is require</span>
+        <br />
+
+        Country
+        <select [(ngModel)]="selectedCountry.CountryId"
+                (ngModelChange)="onSelectCountry($event)" [ngModelOptions]="{standalone : true}" >
+            <option value="0">--Select Country--</option>
+            <option *ngFor="let country of countries" value={{country.CountryId}}>
+                {{country.CountryName}}
+            </option>
+        </select>
+
+        <br /> State
+        <select [(ngModel)]="selectedState.StateId"
+                (ngModelChange)="onSelectState($event)" [ngModelOptions]="{standalone : true}" >
+            <option *ngIf='selectedCountry.CountryId == 0' value="0">--Select State--</option>
+            <option *ngFor="let state of states " value={{state.StateId}}>
+                {{state.StateName}}
+            </option>
+        </select>
+        <br /><br />
+
+
+        <input type="button" value="Add Customer" (click)="Add()" [disabled]="!(customerObj.IsValid())" />
+        <input type="button" value="Update Customer" (click)="Update()" />
+        <input type="button" value="Cancel" (click)="Clear()" />
+        <input type="submit" value="GetJSONFromServer" (click)="submit()" />
+        <input type="button" value="Customer Info" (click)="customerInfo()" />
+    </div>
+</form>
+<br/>
+
+<grid-ui [grid-data]="customers" [grid-entityname]="'Customer'" (grid-selected)="Select($event)">
+    <!-- Select($event) is a method of CustomerComponent.
+         when we call the (grid-selected) event of GridComponent it's emit selected object  and we pass that object via $event property to Select () method of the Customer Component -->
+</grid-ui>
+
+
+<!--<table class="myTable">
+    <tr>
+        <th>CustomerId</th>
+        <th>CustomerName</th>
+        <th>CustomerAmount</th>
+        <th>Select Record</th>
+    </tr>
+    <tr *ngFor="let item of customers">
+        <td>{{item.CustomerId}}</td>
+        <td>{{item.CustomerName}}</td>
+        <td>{{item.CustomerAmount}}</td>
+        <td><a href="#" (click)="Select(item)">Select</a></td>
+
+    </tr>
+</table>-->
+
+
+<!--<br/>
+<hr/>
+<div [ngStyle]="{color:'blue'}"  [ngClass]="{redborder: true}">
+    <b><i>   {{customerObj.CustomerId}} </i></b> <br/>
+    <b>  {{customerObj.CustomerName | uppercase | reversestring}} </b><br />
+    <b>  {{customerObj.CustomerName | uppercase | reversestring : "###" : "!!!"}} </b><br />
+    {{customerObj.CustomerAmount | number}}<br />
+    {{customerObj.CustomerAmount | number:'3.2'}}<br />
+</div>-->
+
+
+<!--{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}
+
+	minIntegerDigits is the minimum number of integer digits to use. Defaults to 1.
+	minFractionDigits is the minimum number of digits after fraction. Defaults to 0.
+	maxFractionDigits is the maximum number of digits after fraction. Defaults to 3.-->

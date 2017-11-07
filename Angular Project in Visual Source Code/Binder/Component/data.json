@@ -1,0 +1,5 @@
+[ 
+{"CustomerId" : "C5001", "CustomerName" : "user1", "CustomerAmount" : "1000"},
+{"CustomerId" : "C5002", "CustomerName" : "user2", "CustomerAmount" : "2000"},
+{"CustomerId" : "C5003", "CustomerName" : "user3", "CustomerAmount" : "3000"}
+]

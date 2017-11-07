@@ -1,0 +1,19 @@
+﻿Title : Displaying records for  {{EntityName}}
+<table class="myTable">
+    <tr>
+        <th *ngFor="let colName of gridColumns">
+            {{colName}}
+        </th>
+        <th>Select Row</th>
+    </tr>
+    <tr *ngFor="let row of gridData">
+        <td *ngFor="let colName of gridColumns">
+            {{row[colName]}}
+        </td>
+        
+        <td><a [routerLink]="['/Customer/']" (click)="SelectRecord(row)"> Select </a></td>
+        <!-- Call Select(object) method of GridComponent
+      Which internally raise Selected event and emit Selected object to the parent component Select($event) method via $event property-->
+
+    </tr>
+</table>

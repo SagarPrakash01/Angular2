@@ -1,0 +1,1 @@
+{"version":3,"file":"CustomerComponent.js","sourceRoot":"","sources":["CustomerComponent.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAwB,eAAe,CAAC,CAAA;AACxC,yBAAuB,sBAAsB,CAAC,CAAA;AAM9C;IAAA;QACI,gBAAW,GAAa,IAAI,mBAAQ,EAAE,CAAC;IAC3C,CAAC;IAND;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,aAAa;YACvB,WAAW,EAAE,wBAAwB;SACxC,CAAC;;yBAAA;IAGF,wBAAC;AAAD,CAAC,AAFD,IAEC;AAFY,yBAAiB,oBAE7B,CAAA"}

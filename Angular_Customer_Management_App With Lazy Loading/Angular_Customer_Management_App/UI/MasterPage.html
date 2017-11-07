@@ -1,0 +1,25 @@
+﻿<link rel="shortcut icon" href="" />
+
+<div style="text-align:center">
+    <img src="../angular.png" height="100" width="150" />
+</div>
+<h1 style="text-align:center; color:darkblue">Angular Application</h1>
+<h2 style="text-align:center; color:darkorchid">Customer Management Application</h2>
+
+
+<div id="divfooter" style="background-color:lightcyan;border:1px solid black;text-align:left;color:white;font-size:20px; ">
+    <!--<a href="Customer.html">Customer</a>-->
+
+    <a [routerLink]="['']">Home</a> ||
+    <a [routerLink]="['Customer']">Customer</a> ||
+    <a [routerLink]="['Supplier']">Supplier</a> ||
+
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+
+
+

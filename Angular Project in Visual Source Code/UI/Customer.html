@@ -1,0 +1,37 @@
+<form [formGroup]="customerObj.CustomerGroupValidator">
+
+     pristine {{customerObj.CustomerGroupValidator.pristine}}   <br/>
+
+    touch {{customerObj.CustomerGroupValidator.touched}}   <br />
+    <div>
+
+        <select [ngModelOptions]="{standalone: true}" [ngModel]="customerType"  (ngModelChange)="onCustomerTypeChange($event)">
+            <option value="Customer">Customer</option>
+            <option value="LoyalCustomer">LoyalCustomer</option>
+        </select>
+        <br/>
+        Customer Id :   <input type="text" formControlName="CustomerId"  [(ngModel)]="customerObj.CustomerId" /> 
+        <span *ngIf="(customerObj.IsDirty('CustomerId') == true)"    [hidden]="customerObj.IsValid('CustomerId','required')">Customer Id is require</span>
+         <span *ngIf="(customerObj.IsDirty('CustomerId') == true)"   [hidden]="customerObj.IsValid('CustomerId','pattern')">Customer Id should start with C followed by 4 digits</span>
+        <br />
+        Customer Name : <input type="text" formControlName="CustomerName"  [(ngModel)]="customerObj.CustomerName"  />
+           <span *ngIf="(customerObj.IsDirty('CustomerName') == true)"   [hidden]="customerObj.IsValid('CustomerName','required')">Customer Name is require</span>
+         <br />        
+         Customer Amount:  <input type="text" formControlName="CustomerAmount"  [(ngModel)]="customerObj.CustomerAmount" />
+          <span *ngIf="(customerObj.IsDirty('CustomerAmount') == true)"    [hidden]="customerObj.IsValid('CustomerAmount','required')">Customer Amount is require</span>
+          <br />
+   
+       <input type="button" value="Add Customer" (click)="Add()" [disabled]="!(customerObj.IsValid())" />
+ <input type="button" value="Update Customer" (click)="Update()" />
+ <input type="button" value="Clear" (click)="Clear()" />
+ <input type="submit" value="Get" (click)="submit()" />
+      
+      <br/><br/>
+      <grid-ui [grid-data]="customers" [grid-entityname]="'Customer'" (grid-selectedrecord)="Select($event)"   ></grid-ui>
+    </div>
+
+</form>
+
+
+
+

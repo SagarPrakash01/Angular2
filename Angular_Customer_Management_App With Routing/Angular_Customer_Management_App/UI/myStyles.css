@@ -1,0 +1,26 @@
+﻿body {
+}
+
+.redborder {
+    border: 1px solid red
+}
+
+
+.myTable {
+    width: 100%;
+    text-align: left;
+    background-color: lemonchiffon;
+    border-collapse: collapse;
+}
+
+    .myTable th {
+        background-color: goldenrod;
+        color: white;
+        border: 1px solid lemonchiffon;
+        padding: 10px;
+    }
+
+    .myTable td {
+        padding: 10px;
+        border: 1px solid goldenrod;
+    }

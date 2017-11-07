@@ -1,0 +1,16 @@
+﻿<b>Title : Displaying records for  {{EntityName}}</b>
+<br/>
+<table>
+    <tr>
+        <td *ngFor="let colName of gridColumns">
+            {{colName}}
+        </td>
+    </tr>
+    <tr *ngFor="let row of gridData">
+        <td *ngFor="let colName of gridColumns">
+            {{row[colName]}}
+        </td>
+        <td><a href="#" (click)="Select(row)">Select</a></td>
+
+    </tr>
+</table>

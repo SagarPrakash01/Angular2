@@ -1,0 +1,45 @@
+﻿<form  [formGroup]="currentCustomer.CustomerGroupValidator">
+    pristine {{currentCustomer.CustomerGroupValidator.pristine}}   <br/>
+
+    touch {{currentCustomer.CustomerGroupValidator.touched}}   <br />
+
+    <br/>
+    <div>
+        Customer Tyle :
+        <select [ngModelOptions]="{standalone : true}"
+                [ngModel]="customerType" (ngModelChange)="onCustomerTypeChange($event)">
+            <option value="Customer">Customer</option>
+            <option value="LoyalCustomer">LoyalCustomer</option>
+        </select>
+        <br />
+        Customer Id :   <input type="text"
+                               formControlName="CustomerId"
+                                [(ngModel)]="currentCustomer.CustomerId" /> 
+        <span *ngIf="(currentCustomer.IsDirty('CustomerId') == true)"   [hidden]="currentCustomer.IsValid('CustomerId','required')">Customer Id is require</span>
+        <span  *ngIf="(currentCustomer.IsDirty('CustomerId') == true)" [hidden]="currentCustomer.IsValid('CustomerId','pattern')">Customer Id should start with C followed by 4 digits</span>
+        <br />
+        Customer Name : <input type="text" 
+                               formControlName="CustomerName"
+                                [(ngModel)]="currentCustomer.CustomerName" /> 
+        <span  *ngIf="(currentCustomer.IsDirty('CustomerName') == true)" [hidden]="currentCustomer.IsValid('CustomerName','required')">Customer Name is require</span>
+        <br />
+        Customer Amount :  <input type="text"                                   formControlName="CustomerAmount"
+                                   [(ngModel)]="currentCustomer.CustomerAmount" /> 
+        <span  *ngIf="(currentCustomer.IsDirty('CustomerAmount') == true)" [hidden]="currentCustomer.IsValid('CustomerAmount','required')">Customer Amount is require</span>
+        <br />
+
+        <input type="button" value="Add Customer" (click)="Add()" [disabled]="!(currentCustomer.IsValid())" />
+        <input type="button" value="Update Customer" (click)="Update()" />
+        <input type="button" value="Cancel" (click)="Clear()" />
+
+        <br />
+        <grid-ui [grid-data]="customers" [grid-entityname]="'Customer'" (grid-selected)="Select($event)">
+
+        </grid-ui>
+
+
+    </div>
+
+
+
+</form>

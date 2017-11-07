@@ -1,0 +1,38 @@
+﻿<div>
+    Customer Id :   <input type="text" [(ngModel)]="currentCustomer.CustomerId" /> <br />
+    Customer Name : <input type="text" [(ngModel)]="currentCustomer.CustomerName" /> <br />
+    Customer Amount :  <input type="text" [(ngModel)]="currentCustomer.CustomerAmount" /> <br /> 
+
+    <input type="button" value="Add Customer" (click)="Add()" />
+    <input type="button" value="Update Customer" (click)="Update()" />
+    <input type="button" value="Cancel" (click)="Clear()" />
+
+    <table border="1" [ngClass]="{redborder : true}" >
+        <tr>
+            <th>CustomerId</th>
+            <th>CustomerName</th>
+            <th>CustomerAmount</th>
+        </tr>
+        <tr *ngFor="let item of customers">
+            <td>{{item.CustomerId}}</td>
+            <td>{{item.CustomerName}}</td>
+            <td>{{item.CustomerAmount}}</td>
+            <td><a href="#" (click)="Select(item)">Select</a></td>
+
+        </tr>
+    </table>  
+</div>
+
+
+    <!--<div>
+        Customer Id :   <input type="text" [ngModel]="customerObj.CustomerId"/> <br />
+        Customer Name : <input type="text"  (input)="customerObj.CustomerName=$event.target.value" /> <br />
+        Customer Name Two way : <input type="text" [ngModel]="customerObj.CustomerName" (input)="customerObj.CustomerName=$event.target.value" /> <br />
+        Customer Amount:  <input type="text" [(ngModel)]="customerObj.CustomerAmount" /> <br />
+    </div>
+<div [ngStyle]="{color : 'blue'}"  [ngClass]="{redborder : true}">
+    {{customerObj.CustomerId}} <br/>
+    {{customerObj.CustomerName}} <br/>
+    {{customerObj.CustomerAmount}} <br/>
+</div>-->
+

@@ -1,0 +1,48 @@
+﻿
+    <div>
+        CustomerID : <input type="text" [(ngModel)]="currentCustomer.CustomerId"  />
+        <br />
+        CustomerName : <input type="text" [(ngModel)]="currentCustomer.CustomerName"  />
+        <br />
+        CustomerAmount : <input type="text" [(ngModel)]="currentCustomer.CustomerAmount"  />
+        <br />
+        <div [ngClass]="{redborder : true}" [ngStyle]="{color : 'blue'}">
+            <b><i>  {{currentCustomer.CustomerId}}</i></b>
+            <br />
+            {{currentCustomer.CustomerName}}
+            <br />
+            {{currentCustomer.CustomerAmount}}
+        </div>
+
+        <input type="button" value="Add Customer" (click)="Add()"  />
+
+        <input type="button" value="Update customer" (click)="Update()" />
+
+        <input type="button" value="Clear" (click)="Clear()" />
+
+        <input type="button" value="Submit to API" (click)="Submit()" />
+
+        <br /><br />
+        <grid-ui [grid-data]="customers" [grid-entityname]="'Customer'"  (grid-selected)="Select($event)"></grid-ui>
+
+    </div>
+
+
+<!--    <table>
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+                <th>CustomerAmount</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let item of customers">
+                <td>{{item.CustomerId}}</td>
+                <td>{{item.CustomerName}}</td>
+                <td>
+                    {{item.CustomerAmount}}
+                </td>
+                <td>
+                    <a href="#" (click)="Select(item)">Select</a>
+                </td>
+            </tr>
+        </table> -->
